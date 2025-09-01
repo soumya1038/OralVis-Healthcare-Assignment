@@ -48,8 +48,14 @@ A comprehensive web application for managing and visualizing oral health scans, 
 
 ## 📸 Screenshots
 
+### Home Page
+![Home Page](screenshots/home.png)
+
 ### Login Page
 ![Login Page](screenshots/login.png)
+
+### Registration Page
+![Registration Page](screenshots/registration.png)
 
 ### Technician Upload Interface
 ![Technician Upload](screenshots/technician-upload.png)
@@ -243,7 +249,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Team
 
-- **Developer:** Your Name
+- **Developer:** Soumya
 - **Project Type:** Healthcare Technology
 - **Duration:** Development Timeline
 
