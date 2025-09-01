@@ -122,7 +122,8 @@ class Login extends Component {
                                         type="password" 
                                         placeholder="Enter Password" 
                                         value={password} 
-                                        onChange={this.onChangePassword} 
+                                        onChange={this.onChangePassword}
+                                        autoComplete="current-password" 
                                     />
                                 </div>
                                 <button className="submit-btn" type="submit">Login</button>
@@ -166,6 +167,7 @@ class Login extends Component {
                                         placeholder="Enter Password"
                                         value={password}
                                         onChange={this.onChangePassword}
+                                        autoComplete="new-password"
                                         required
                                     />
                                 </div>
