@@ -42,13 +42,15 @@ class Login extends Component {
             .then(data => {
                 console.log(data);
                 if (data.success) {
-                    alert('Login Successful');
-                    const path = data.role === 'Technician' ? '/technician' : '/dentist';
-                    window.location.href = path;    // add the role from response
+                    // Set cookies FIRST
                     const token = data.jwtToken;
                     Cookies.set('Token', token, { expires: 1 });
                     localStorage.setItem('Token', token);
                     Cookies.set("user", JSON.stringify({ email: data.email, role: data.role }), { expires: 1 });
+                    
+                    alert('Login Successful');
+                    const path = data.role === 'Technician' ? '/technician' : '/dentist';
+                    window.location.href = path;
                 } else {
                     alert('Login Failed');
                 }
