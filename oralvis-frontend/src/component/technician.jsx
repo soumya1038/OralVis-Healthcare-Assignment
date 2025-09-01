@@ -35,7 +35,7 @@ class TechnicianUpload extends Component {
       formData.append("scan", file);  // 👈 MUST match .single("scan")
 
 
-      const res = await axios.post('http://localhost:5000/technician/upload', formData, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/technician/upload`, formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('Token')}`,
         },

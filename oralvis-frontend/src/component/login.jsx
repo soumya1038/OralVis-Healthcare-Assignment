@@ -33,7 +33,7 @@ class Login extends Component {
         const { email, password } = this.state;
         const userdata = { email, password };
 
-        fetch("http://localhost:5000/login", {
+        fetch(`${import.meta.env.VITE_API_URL}/login`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userdata)
@@ -66,7 +66,7 @@ class Login extends Component {
         // Remove password from logs in production!
         console.log({ name, email, role, password });
 
-        fetch("http://localhost:5000/register", {
+        fetch(`${import.meta.env.VITE_API_URL}/register`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userdata),
