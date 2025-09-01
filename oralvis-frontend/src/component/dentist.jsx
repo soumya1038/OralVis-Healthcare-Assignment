@@ -22,7 +22,7 @@ class Dentist extends Component {
                 }
             });
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
             this.setState({ data: data });
         } catch (error) {
             console.error(error);

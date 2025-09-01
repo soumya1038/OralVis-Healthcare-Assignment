@@ -5,7 +5,7 @@ A comprehensive web application for managing and visualizing oral health scans, 
 ## 🚀 Live Demo
 
 **Frontend:** [https://oralvis-healthcare.netlify.app](https://oralvis-healthcare.netlify.app)
-**Backend API:** [https://your-render-service-name.onrender.com](https://your-render-service-name.onrender.com)
+**Backend API:** [https://oralvis-healthcare-assignment.onrender.com](https://oralvis-healthcare-assignment.onrender.com)
 
 ## 📋 Test Credentials
 
@@ -128,6 +128,25 @@ NODE_ENV=development
 VITE_API_URL=http://localhost:5000
 ```
 
+### Production Environment Variables
+
+#### Backend (Render)
+```env
+PORT=10000
+JWT_SECRET=your_super_secure_jwt_secret_key_here
+JWT_EXPIRES_IN=24h
+CLOUDINARY_CLOUD_NAME=your_cloudinary_name
+CLOUDINARY_API_KEY=your_cloudinary_key
+CLOUDINARY_API_SECRET=your_cloudinary_secret
+FRONTEND_URL=https://oralvis-healthcare.netlify.app
+NODE_ENV=production
+```
+
+#### Frontend (Netlify)
+```env
+VITE_API_URL=https://oralvis-healthcare-assignment.onrender.com
+```
+
 ## 🔧 Build for Production
 
 ### Frontend
@@ -185,13 +204,26 @@ The application is fully responsive and optimized for:
 ### Frontend (Netlify)
 1. Build the project: `npm run build`
 2. Deploy the `dist` folder to Netlify
-3. Configure environment variables in Netlify dashboard
+3. Configure environment variables in Netlify dashboard:
+   - `VITE_API_URL=https://oralvis-healthcare-assignment.onrender.com`
+4. Add `netlify.toml` for SPA routing:
+   ```toml
+   [[redirects]]
+     from = "/*"
+     to = "/index.html"
+     status = 200
+   ```
 
 ### Backend (Render)
-1. Connect GitHub repository to Render
-2. Set build command: `npm install`
-3. Set start command: `npm start`
-4. Configure environment variables in Render dashboard
+1. Create Web Service on Render
+2. Connect GitHub repository to Render
+3. Set build command: `npm install`
+4. Set start command: `npm start`
+5. Set root directory: `oralvis-backend` (if monorepo)
+6. Configure environment variables in Render dashboard
+7. Deploy and get your service URL
+
+**Important:** Render is required for the backend as it supports SQLite databases, unlike Vercel which is serverless.
 
 ## 🤝 Contributing
 

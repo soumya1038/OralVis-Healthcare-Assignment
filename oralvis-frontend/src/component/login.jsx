@@ -40,7 +40,7 @@ class Login extends Component {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.success) {
                     // Set cookies FIRST
                     const token = data.jwtToken;
@@ -66,7 +66,7 @@ class Login extends Component {
         const { name, email, password, role } = this.state;
         const userdata = { name, email, password, role };
         // Remove password from logs in production!
-        console.log({ name, email, role, password });
+        // console.log({ name, email, role, password });
 
         fetch(`${import.meta.env.VITE_API_URL}/register`, {
             method: "POST",
@@ -75,7 +75,7 @@ class Login extends Component {
         })
             .then(async (response) => {
                 const data = await response.json();
-                console.log("Server response:", data);
+                console.log("Server response:");
 
                 if (data.success) {
                     alert("Registration Successful");
