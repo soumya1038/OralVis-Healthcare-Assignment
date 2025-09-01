@@ -43,6 +43,18 @@ class TechnicianUpload extends Component {
 
       // console.log(res.data);
       alert("Upload successful!");
+      
+      // Clear form inputs after successful upload
+      this.setState({
+        patientName: '',
+        patientId: '',
+        scanType: '',
+        region: '',
+        file: null,
+      });
+      
+      // Reset file input
+      document.getElementById('file-upload').value = '';
     } catch (err) {
       console.error(err);
       alert("Upload failed!");
