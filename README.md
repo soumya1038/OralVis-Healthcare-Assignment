@@ -12,10 +12,12 @@ A comprehensive web application for managing and visualizing oral health scans, 
 ### Technician Account
 - **Email:** `tech@example.com`
 - **Password:** `tech123`
+- **Features:** Upload scans, auto form reset
 
 ### Dentist Account
 - **Email:** `admin@example.com`
 - **Password:** `admin123`
+- **Features:** View scans, download PDFs, delete scans
 
 ## 🛠️ Technology Stack
 
@@ -166,6 +168,7 @@ npm start
 ### For Technicians
 - **Secure Authentication** - JWT-based login system
 - **Scan Upload** - Upload patient scans with metadata
+- **Auto Form Reset** - Form clears automatically after successful upload
 - **File Management** - Support for multiple image formats
 - **Form Validation** - Comprehensive input validation
 
@@ -174,6 +177,7 @@ npm start
 - **Patient Statistics** - Real-time scan analytics
 - **Scan Viewer** - Full-screen image viewing
 - **PDF Reports** - Generate downloadable patient reports
+- **Scan Management** - Delete unwanted scans with confirmation
 - **Search & Filter** - Find specific patient scans
 
 ### General

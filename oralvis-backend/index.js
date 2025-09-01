@@ -259,3 +259,29 @@ app.get("/dentist/scans", authenticateToken, authorizeRole("Dentist"), async (re
         res.status(500).send("Error fetching scans");
     }
 });
+
+// DELETE /dentist/scans/:id (protected, role: Dentist)
+app.delete("/dentist/scans/:id", authenticateToken, authorizeRole("Dentist"), async (req, res) => {
+    try {
+        const { id } = req.params;
+        
+        // Get scan details before deleting
+        const scan = await db.get(`SELECT * FROM scans WHERE id = ?`, [id]);
+        if (!scan) {
+            return res.status(404).json({ success: false, message: "Scan not found" });
+        }
+        
+        // Delete from database
+        await db.run(`DELETE FROM scans WHERE id = ?`, [id]);
+        
+        // Optional: Delete from Cloudinary
+        // Extract public_id from imageUrl and delete from Cloudinary
+        // const publicId = scan.imageUrl.split('/').pop().split('.')[0];
+        // await cloudinary.uploader.destroy(`oralvis_scans/${publicId}`);
+        
+        res.json({ success: true, message: "Scan deleted successfully" });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: "Error deleting scan" });
+    }
+});

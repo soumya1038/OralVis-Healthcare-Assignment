@@ -3,7 +3,7 @@ import { jsPDF } from "jspdf";
 import "./EachData.css";
 
 const EachData = (props) => {
-  const { item } = props;
+  const { item, onDelete } = props;
   const {
     id,
     imageUrl,
@@ -94,6 +94,14 @@ const EachData = (props) => {
           >
             <span>⬇️</span> Download Report
           </button>
+          {onDelete && (
+            <button
+              onClick={() => onDelete(id)}
+              className="action-btn delete-btn"
+            >
+              <span>🗑️</span> Delete
+            </button>
+          )}
         </div>
       </div>
 

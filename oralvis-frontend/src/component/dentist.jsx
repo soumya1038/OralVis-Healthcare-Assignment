@@ -29,6 +29,32 @@ class Dentist extends Component {
         }
     }
 
+    handleDeleteScan = async (scanId) => {
+        if (!window.confirm('Are you sure you want to delete this scan?')) {
+            return;
+        }
+        
+        try {
+            const token = localStorage.getItem("Token");
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/dentist/scans/${scanId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                }
+            });
+            
+            if (response.ok) {
+                alert('Scan deleted successfully');
+                this.getUploadData(); // Refresh the data
+            } else {
+                alert('Failed to delete scan');
+            }
+        } catch (error) {
+            console.error(error);
+            alert('Error deleting scan');
+        }
+    }
+
 
 
     render() {
@@ -62,7 +88,7 @@ class Dentist extends Component {
                             <ul className="scans-grid">
                                 {data.map(item => (
                                     <li key={item.id} className="scan-item">
-                                        <EachData item={item} />
+                                        <EachData item={item} onDelete={this.handleDeleteScan} />
                                     </li>
                                 ))}
                             </ul>
