@@ -147,7 +147,7 @@ app.post("/register", async (req, res) => {
         res.json({ success: true, message: "User created successfully" });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ success: false, message: "Server error", error: err.message });
+        res.status(500).send("Server error");
     }
 });
 
@@ -194,7 +194,6 @@ app.post("/login", async (req, res) => {
       success: false,
       status: 500,
       message: "Server error",
-      error: err.message
     });
   }
 });
