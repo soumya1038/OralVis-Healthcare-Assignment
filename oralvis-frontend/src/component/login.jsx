@@ -109,10 +109,11 @@ class Login extends Component {
                                     <label className="form-label">Email</label>
                                     <input 
                                         className="form-input"
-                                        type="text" 
+                                        type="email" 
                                         placeholder="Enter Email" 
                                         value={email} 
-                                        onChange={this.onChangeEmail} 
+                                        onChange={this.onChangeEmail}
+                                        autoComplete="username" 
                                     />
                                 </div>
                                 <div className="form-group">
@@ -156,6 +157,7 @@ class Login extends Component {
                                         placeholder="Enter Email"
                                         value={email}
                                         onChange={this.onChangeEmail}
+                                        autoComplete="email"
                                         required
                                     />
                                 </div>
