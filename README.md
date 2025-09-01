@@ -10,12 +10,12 @@ A comprehensive web application for managing and visualizing oral health scans, 
 ## 📋 Test Credentials
 
 ### Technician Account
-- **Email:** `technician@oralvis.com`
-- **Password:** `password123`
+- **Email:** `tech@example.com`
+- **Password:** `tech123`
 
 ### Dentist Account
-- **Email:** `dentist@oralvis.com`
-- **Password:** `password123`
+- **Email:** `admin@example.com`
+- **Password:** `admin123`
 
 ## 🛠️ Technology Stack
 
